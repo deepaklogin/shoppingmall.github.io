@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<h2>WELCOME TO BIGGEST SHOPING MALL</h2>
+<div id="detail">
+	<table>
+		<tr>
+			<th>NAME:-</th>
+			<td><input type="text" id="t1" onblur="text1()" autocomplete="off"></td>
+			<td><span id="s1" style="color: red;"></span></td>
+		</tr>
+		<tr>
+			<th>E-MAIL:-</th>
+			<td><input type="text" id="t2" onblur="text2()"></td>
+			<td><span id="s2" style="color: red;"></span></td>
+		</tr>
+		<tr>
+			<th>PHONE NO:-</th>
+		    <td><input type="text" id="t3" maxlength="10" onblur="text3()"></td>
+			<td><span id="s3" style="color: red;"></span></td>
+		</tr>
+		<tr>
+			<th>ADDRESS:-</th>
+			<td><textarea id="t4" onblur="text4()" cols="40" rows="10"></textarea></td>
+			<td><span id="s4" style="color: red;"></span></td>
+		</tr>
+	</table>
+</div>
+<!-- shopping cart -->
+<div>
+	<table border="1" width="900px" height="300px">
+		<tr>
+			<th>PRODUCT</th>
+			<th>RATE</th>
+			<th>QUANTITY</th>
+			<th>IMAGE</th>
+		</tr>
+		<tr>
+			<th>
+				<select id="p1" onchange="product1()">
+					<option value="p">--select--</option>
+					<option value="iphone">Iphone</option>
+					<option value="redmi">Redmi</option>
+					<option value="samsung">Samsung</option>
+					<option value="vivo">Vivo</option>
+					<option value="intex">Intex</option>
+					<option value="oppo">Oppo</option>
+				</select>
+			</th>
+			<th>
+				<input type="text" id="r1" readonly>
+			</th>
+			<th>
+				<select id="q1">
+					<option value="0">--select--</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+				</select>
+			</th>
+			<th><img src="" id="i1" width="50px" width="50px" ></th>
+		</tr>
+		<tr>
+			<th>
+				<select id="p2" onchange="product2()">
+					<option value="p">--select--</option>
+					<option value="iphone">Iphone</option>
+					<option value="redmi">Redmi</option>
+					<option value="samsung">Samsung</option>
+					<option value="vivo">Vivo</option>
+					<option value="intex">Intex</option>
+					<option value="oppo">Oppo</option>
+				</select>
+			</th>
+			<th>
+				<input type="text" id="r2" readonly>
+			</th>
+			<th>
+				<select id="q2" onchange="product3()">
+					<option value="0">--select--</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+				</select>
+			</th>
+			<th><img src="" id="i2" width="50px" width="50px"></th>
+		</tr>
+		<tr>
+			<th>
+				<select id="p3" onchange="product3()">
+					<option value="p">--select--</option>
+					<option value="iphone">Iphone</option>
+					<option value="redmi">Redmi</option>
+					<option value="samsung">Samsung</option>
+					<option value="vivo">Vivo</option>
+					<option value="intex">Intex</option>
+					<option value="oppo">Oppo</option>
+				</select>
+			</th>
+			<th>
+				<input type="text" id="r3" readonly>
+			</th>
+			<th>
+				<select id="q3">
+					<option value="0">--select--</option>
+					<option value="1">1</option>
+					<option value="2">2</option>
+					<option value="3">3</option>
+					<option value="4">4</option>
+					<option value="5">5</option>
+					<option value="6">6</option>
+					<option value="7">7</option>
+				</select>
+			</th>
+			<th><img src="" id="i3" width="70px" width="50px"></th>
+		</tr>
+	</table>
+</div><br>
+<button onclick="bill()">Total Bill</button><br><br>
+<textarea id="tx" readonly cols="90" rows="20"></textarea>
+</body>
+</html>
+<script>
+	function text1()
+	{
+		var t,t1;
+		t=document.getElementById("t1").value;
+		t1=/^[a-zA-Z ]+$/;
+		if(!t.match(t1))
+		{
+			document.getElementById("s1").innerHTML="Please enter valid name";
+			return 'n';
+		}
+		else
+		{
+			document.getElementById("s1").innerHTML=" ";
+			return 'y';
+		}
+	}
+	function text2()
+	{
+		var t,t1;
+		t=document.getElementById("t2").value;
+		t1=/^[a-zA-Z0-9]+\@[a-zA-Z]+\.[a-zA-Z.]{2,6}$/;
+		if(!t.match(t1))
+		{
+			document.getElementById("s2").innerHTML="Please enter valid email id";
+			return 'n';
+		}
+		else
+		{
+			document.getElementById("s2").innerHTML=" ";
+			return 'y';
+		}
+	}
+	function text3()
+	{
+		var t,t1;
+		t=document.getElementById("t3").value;
+		t1=/^[0-9]{10,10}$/;
+		if(!t.match(t1))
+		{
+			document.getElementById("s3").innerHTML="Please enter valid phone number";
+			return 'n';
+		}
+		else
+		{
+			document.getElementById("s3").innerHTML=" ";
+			return 'y';
+		}
+	}
+	function text4()
+	{
+		var t,t1;
+		t=document.getElementById("t4").value;
+		t1=/^[a-zA-Z, ]{10,100}$/;
+		if(!t.match(t1))
+		{
+			document.getElementById("s4").innerHTML="Please enter valid address";
+			return 'n';
+		}
+		else
+		{
+			document.getElementById("s4").innerHTML=" ";
+			return 'y';
+		}
+	}
+</script>
+<!-- shopping function -->
+<script>
+	function product1()
+	{
+		var p,r,i;
+		p=document.getElementById("p1").value;
+		if(p=='iphone')
+		{
+			r=100000;
+			i="a1.jpg";
+		}
+		else
+			if(p=='redmi')
+			{
+				r=25000;
+				i="a2.jpg";
+			}
+
+		else
+			if(p=='samsung')
+			{
+				r=35000;
+				i="a3.jpg";
+			}
+		else
+			if(p=='vivo')
+			{
+				r=20000;
+				i="a4.jpg";
+			}
+		else
+			if(p=='intex')
+			{
+				r=15000;
+				i="a5.jpg";
+			}
+		else
+			if(p=='oppo')
+			{
+				r=30000;
+				i="a6.jpg";
+			}
+			else
+			{
+				r=0;
+			}
+			document.getElementById("r1").value=r;
+			document.getElementById("i1").src=i;
+
+	}
+	function product2()
+	{
+		var p,r,i;
+		p=document.getElementById("p2").value;
+		if(p=='iphone')
+		{
+			r=100000;
+			i="a1.jpg";
+		}
+		else
+			if(p=='redmi')
+			{
+				r=25000;
+				i="a2.jpg";
+			}
+
+		else
+			if(p=='samsung')
+			{
+				r=35000;
+				i="a3.jpg";
+			}
+		else
+			if(p=='vivo')
+			{
+				r=20000;
+				i="a4.jpg";
+			}
+		else
+			if(p=='intex')
+			{
+				r=15000;
+				i="a5.jpg";
+			}
+		else
+			if(p=='oppo')
+			{
+				r=30000;
+				i="a6.jpg";
+			}
+			else
+			{
+				r=0;
+			}
+			document.getElementById("r2").value=r;
+			document.getElementById("i2").src=i;
+	}
+	function product3()
+	{
+		var p,r,i;
+		p=document.getElementById("p3").value;
+		if(p=='iphone')
+		{
+			r=100000;
+			i="a1.jpg";
+		}
+		else
+			if(p=='redmi')
+			{
+				r=25000;
+				i="a2.jpg";
+			}
+
+		else
+			if(p=='samsung')
+			{
+				r=35000;
+				i="a3.jpg";
+			}
+		else
+			if(p=='vivo')
+			{
+				r=20000;
+				i="a4.jpg";
+			}
+		else
+			if(p=='intex')
+			{
+				r=15000;
+				i="a5.jpg";
+			}
+		else
+			if(p=='oppo')
+			{
+				r=30000;
+				i="a6.jpg";
+			}
+			else
+			{
+				r=0;
+			}
+			document.getElementById("r3").value=r;
+			document.getElementById("i3").src=i;
+	}
+	// bill function
+	function bill()
+	{
+		if(text1()=='y'&&text2()=='y'&&text3()=='y'&&text4()=='y')
+		{
+
+		var p1,q1,r1,t1,t2,t3,t4,a1=0;
+		t1=document.getElementById("t1").value;
+		t2=document.getElementById("t2").value;
+		t3=document.getElementById("t3").value;
+		t4=document.getElementById("t4").value;
+		p1=document.getElementById("p1").value;
+		r1=document.getElementById("r1").value;
+		q1=document.getElementById("q1").value;
+		if(p1!='p'&&q1!='0')
+		{
+			a1=r1*q1;
+		}
+		var p2,r2,q2,a2=0;
+		p2=document.getElementById("p2").value;
+		r2=document.getElementById("r2").value;
+		q2=document.getElementById("q2").value;
+		if(p2!='p'&&q2!='0')
+		{
+			a2=r2*q2;
+		}
+		var p3,q3,r3,a3=0;
+		p3=document.getElementById("p3").value;
+		r3=document.getElementById("r3").value;
+		q3=document.getElementById("q3").value;
+		if(p3!='p'&&q3!='0')
+		{
+			a3=r3*q3;
+		}
+		var total=a1+a2+a3;
+		if(total>0)
+		{
+			document.getElementById("tx").value="Dear "+t1;
+			document.getElementById("tx").value+="\nYour billing detail is here \n";
+
+			if(p1!='p'&&q1!='0')
+			{
+				document.getElementById("tx").value+="\n product name is "+p1;
+				document.getElementById("tx").value+="\n quantity is "+q1;
+				document.getElementById("tx").value+="\n total rate is "+a1+"\n";
+			}
+			if(p2!='p'&&q2!='0')
+			{
+				document.getElementById("tx").value+="\n product name is "+p2;
+				document.getElementById("tx").value+="\n quantity is "+q2;
+				document.getElementById("tx").value+="\n total rate is "+a2+"\n";
+			}
+			if(p3!='p'&&q3!='0')
+			{
+				document.getElementById("tx").value+="\n product name is "+p3;
+				document.getElementById("tx").value+="\n quantity is "+q3;
+				document.getElementById("tx").value+="\n total rate is "+a3+"\n";
+			}
+			document.getElementById("tx").value+="\n Total amount is="+total;
+			document.getElementById("tx").value+="\n we send message in this number "+t3;
+			document.getElementById("tx").value+="\n we can track your product "+t2;
+		}
+		else
+		{
+			alert("please select product and quantity");
+		}
+	}
+	else
+	{
+		alert("please enter valid deatil");
+		text1();
+		text2();
+		text3();
+		text4();
+	}
+	}
+</script>
